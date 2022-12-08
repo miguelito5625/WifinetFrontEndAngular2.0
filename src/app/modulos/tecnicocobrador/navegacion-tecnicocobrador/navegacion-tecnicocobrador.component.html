@@ -1,0 +1,68 @@
+<nav class="navbar navbar-default  fixed-top navbar-expand-lg" id="sectionsNav">
+    <div class="container-fluid">
+        <div class="navbar-translate">
+            <a class="navbar-brand" routerLink="/tecnicocobrador/principal">
+                WIFINET </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="dropdown nav-item">
+                    <a href="#" class="active dropdown-toggle nav-link" data-toggle="dropdown">
+                        Transacciones
+                    </a>
+                    <div class="dropdown-menu dropdown-with-icons">
+                        <a routerLink="/tecnicocobrador/instalaciones/listar"
+                            class="dropdown-item">Instalaciones</a>
+                        <a routerLink="/tecnicocobrador/ventas/listar" class="dropdown-item">Ventas</a>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header">Cobros</h6>
+                        <a routerLink="/tecnicocobrador/cobros/listar" class="dropdown-item">Cobros de servicios</a>
+                        <a routerLink="/tecnicocobrador/rutas/listar" class="dropdown-item">Rutas de cobro</a>
+                    </div>
+
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/tecnicocobrador/clientes/listar">
+                        Clientes
+                    </a>
+                </li>
+
+                <li class="dropdown nav-item">
+                    <a href="#" class="active dropdown-toggle nav-link" data-toggle="dropdown">
+                        Depositos
+                    </a>
+                    <div class="dropdown-menu dropdown-with-icons">
+                        <a routerLink="/tecnicocobrador/boletas-deposito/listar" class="dropdown-item">Boletas de
+                            deposito</a>
+                    </div>
+                </li>
+
+
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <i class="material-icons">account_circle</i> {{usuario.nombre_usuario}}
+                    </a>
+                    <div class="dropdown-menu dropdown-with-icons">
+                        <a class="dropdown-item">
+                            {{usuario.nombre_apellido}}
+                        </a>
+                        <a routerLink="javascript:void(0)" (click)="cerrarSesion()" class="dropdown-item">
+                            Cerrar Sesión
+                        </a>
+                    </div>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>

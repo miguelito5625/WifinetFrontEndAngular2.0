@@ -1,0 +1,18 @@
+::ng-deep .ngx-datatable-estado-Inactivo {
+    background-color: yellow !important;
+    color: white !important;
+    font-weight: bold !important;
+  }
+
+  ::ng-deep .ngx-datatable-estado-Activo {
+    background-color: green !important;
+    color: white !important;
+    font-weight: bold !important;
+  }
+
+ /* ::ng-deep .ngx-datatable .datatable-body .datatable-body-row > div {
+    display: flex !important;
+    align-items: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+ } */

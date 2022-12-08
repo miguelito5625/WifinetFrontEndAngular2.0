@@ -1,0 +1,17 @@
+.card {
+    height: 275px;
+}
+
+.page-header{
+    height: 100%;
+}
+
+.fondo-login {
+    position: fixed;
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-image: url("/assets/images/fondo.jpg");
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+    }

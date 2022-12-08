@@ -1,0 +1,70 @@
+<div class="title">
+    <h2>Seleccione cliente que refiere</h2>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-sm-4">
+        <div class="form-group has-default">
+            <input type="text" class="form-control" (keyup)="updateFilter($event)" placeholder="Buscar">
+        </div>
+    </div>
+</div>
+
+<div class="mb-4">
+    <ngx-datatable class="material" [rows]="rows" [scrollbarH]="true" [messages]="messages" [columnMode]="ColumnMode.force"
+    [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="15">
+
+
+    <ngx-datatable-column name="CUI">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>CUI</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.cui}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Nombre">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Nombre</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.primer_nombre + ' ' + row.segundo_nombre + ' ' + row.primer_apellido + ' ' + row.segundo_apellido}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Telefono">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Telefono</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.telefono}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Correo">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Correo</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.correo_electronico}}
+        </ng-template>
+    </ngx-datatable-column>
+
+
+    <ngx-datatable-column name="Acciones">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Acciones</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            
+            
+            <button class="btn btn-primary btn-sm" (click)="seleccionarClienteInstalacion(row)" data-toggle="tooltip"
+                title="Siguiente"><i class="fas fa-arrow-circle-right fa-lg"></i></button>
+
+
+        </ng-template>
+    </ngx-datatable-column>
+
+</ngx-datatable>
+</div>

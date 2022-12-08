@@ -1,0 +1,86 @@
+<div class="title">
+
+
+    <h3>Detalle del ajuste</h3>
+
+
+</div>
+
+<form [formGroup]="formularioAjuste">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Numero de boleta</label>
+                <input type="text" class="form-control" formControlName="numeroBoleta" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Banco</label>
+                <input type="text" class="form-control" formControlName="nombreBanco" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Monto de Boleta</label>
+                <input type="text" class="form-control" formControlName="montoBoleta" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Fecha</label>
+                <input type="text" class="form-control" formControlName="fechaAjuste" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Tipo de Ajuste</label>
+                <input type="text" class="form-control" formControlName="tipoAjuste" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Monto de ajuste</label>
+                <input type="number" class="form-control" formControlName="montoAjuste" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Empleado</label>
+                <input type="text" class="form-control" formControlName="nombreEmpleado" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12">
+            <div class="form-group">
+                <label class="bmd-label-floating">Justificación</label>
+                    <textarea class="form-control" formControlName="detalleAjuste" rows="3" readonly></textarea>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <a class="btn btn-primary" routerLink="/administrador/ajustes-boletas-deposito/listar"><i class="fas fa-arrow-left"></i> Regresar</a>
+
+        </div>
+    </div>
+
+
+
+</form>

@@ -1,0 +1,153 @@
+<div class="title">
+
+
+    <h3>Seleccione las transacciones para el cuadre</h3>
+
+
+</div>
+
+<form [formGroup]="formularioCuadre">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Total depositado</label>
+                <input type="number" class="form-control" formControlName="totalDepositado" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Total transacciones seleccionadas</label>
+                <input type="number" class="form-control" formControlName="totalTransaccionesSeleccionadas" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Balance</label>
+                <input type="number" class="form-control" formControlName="balance" readonly>
+            </div>
+        </div>
+
+
+        
+
+    </div>
+
+</form>
+
+
+<!--------------------------------------------------- tabla transacciones ---------------------------- -->
+
+<div class="title">
+    <h2>Transacciones</h2>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-sm-4">
+        <div class="form-group has-default">
+            <input type="text" class="form-control" (keyup)="updateFilter($event)" placeholder="Buscar">
+        </div>
+    </div>
+</div>
+
+<div class="mb-4">
+    <ngx-datatable class="material" [rows]="rows" [scrollbarH]="true" [messages]="messages" [columnMode]="ColumnMode.force"
+    [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="15"
+    [selected]="selected"
+          [selectionType]="SelectionType.checkbox"
+          [selectAllRowsOnPage]="false"
+
+          (select)="onSelect($event)"
+    >
+
+    <ngx-datatable-column
+            [width]="30"
+            [sortable]="false"
+            [canAutoResize]="false"
+            [draggable]="false"
+            [resizeable]="false"
+            [headerCheckboxable]="true"
+            [checkboxable]="true"
+          >          </ngx-datatable-column>
+
+
+          <ngx-datatable-column name="numero_factura">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>NO. FACTURA</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.numero_factura}}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="numero_recibo">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>NO. RECIBO</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.numero_recibo}}
+            </ng-template>
+        </ngx-datatable-column>
+
+    <ngx-datatable-column name="nombre_cliente">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>CLIENTE</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.nombre_cliente}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="tipo_transaccion">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>TIPO TRANSACCION</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.tipo_transaccion}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="fecha_transaccion_usuario">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>FECHA_USUARIO</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.fecha_transaccion_usuario_formateada}}
+        </ng-template>
+    </ngx-datatable-column>
+    
+
+    <ngx-datatable-column name="total_transaccion">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>TOTAL COBRO</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.total_transaccion}}
+        </ng-template>
+    </ngx-datatable-column>
+
+
+</ngx-datatable>
+</div>
+
+
+<!--------------------------------------------------- fin  tabla transacciones ---------------------------- -->
+
+
+
+
+
+<br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary" (click)="guardarTransacciones()"><i class="material-icons">save</i> Guadar</button>
+            <a class="btn btn-primary" routerLink="/tecnicocobrador/boletas-deposito/listar"><i class="material-icons">cancel</i>
+                Cancelar</a>
+        </div>
+    </div>

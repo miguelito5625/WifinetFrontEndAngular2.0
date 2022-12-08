@@ -1,0 +1,88 @@
+<div class="title">
+
+
+    <h3>Introduzca los datos del deposito</h3>
+
+
+</div>
+
+<form [formGroup]="formularioBoleta" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Numero de boleta</label>
+                <input type="number" class="form-control" formControlName="numero_boleta">
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha de deposito</label>
+                <input type="text" class="form-control datetimepicker" #fecha_deposito id="idfecha_deposito">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Banco</label>
+                <select class="form-control selectpicker show-tick" formControlName="nombre_banco"
+                    data-style="btn btn-default" title="Seleccione el banco" data-size="7" data-live-search="false">
+                    <option value="AGROMERCANTIL">AGROMERCANTIL</option>
+                    <option value="INDUSTRIAL">INDUSTRIAL</option>
+                    <option value="BAC CREDOMATIC">BAC CREDOMATIC</option>
+                    <option value="BANRURAL">BANRURAL</option>
+                    <option value="BANTRAB">BANTRAB</option>
+                    <option value="FICOHSA">FICOHSA</option>
+                    <option value="G&T CONTINENTAL">G&T CONTINENTAL</option>
+                    <option value="INTERNACIONAL">INTERNACIONAL</option>
+                    <option value="PROMERICA">PROMERICA</option>
+                    <option value="VIVIBANCO">VIVIBANCO</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Monto depositado</label>
+                <input type="number" class="form-control" formControlName="monto_depositado">
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group form-file-upload form-file-multiple">
+                <label for="inputArchivo">Comprobante de pago</label>
+                <input type="file" class="inputFileHidden" single #inputFilePdf formControlName="importFile"
+                    id="importFile" (change)="onFileChange($event.target.files)">
+                <div class="input-group">
+                    <input type="text" class="form-control inputFileVisible" placeholder="Seleccione un archivo"
+                        #labelImport for="importFile">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-fab btn-round btn-primary">
+                            <i class="material-icons">attach_file</i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary" ><i class="material-icons">save</i> Guardar</button>
+            <a class="btn btn-primary" routerLink="/administrador/boletas-deposito/listar"><i class="material-icons">cancel</i>
+                Cancelar</a>
+        </div>
+    </div>
+
+
+
+</form>

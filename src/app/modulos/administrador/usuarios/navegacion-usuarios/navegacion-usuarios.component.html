@@ -1,0 +1,39 @@
+<nav class="navbar fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" routerLink="/administrador/usuarios">
+          Wifinet - Usuarios </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/administrador/usuarios/crear">
+              <i class="material-icons">add</i>Crear
+            </a>
+          </li>
+
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <i class="material-icons">account_circle</i> {{usuario.nombre_usuario}}
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a class="dropdown-item">
+                {{usuario.nombre_apellido}}
+              </a>
+              <a routerLink="javascript:void(0)" (click)="cerrarSesion()" class="dropdown-item">
+                Cerrar Sesión
+              </a>
+            </div>
+          </li>
+
+        
+        </ul>
+      </div>
+    </div>
+  </nav>

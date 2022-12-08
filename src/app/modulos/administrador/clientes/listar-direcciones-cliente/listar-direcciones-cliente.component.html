@@ -1,0 +1,71 @@
+<div class="title">
+    <h2>Direcciones de {{nombreCliente}}</h2>
+</div>
+
+
+<div class="mb-4">
+    <ngx-datatable class="material" [rows]="rows" [scrollbarH]="true" [messages]="messages" [columnMode]="ColumnMode.force"
+    [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="15">
+
+
+    <ngx-datatable-column name="fila_numero" [width]="25">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>#</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.fila_numero}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="departamento">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Departamento</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.departamento}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="municipio">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Municipio</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.municipio}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="barrio">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Barrio</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.barrio}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="especificacion">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Dirección exacta</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.especificacion}}
+        </ng-template>
+    </ngx-datatable-column>
+
+
+    <ngx-datatable-column name="Acciones" [width]="225">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Acciones</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            
+            
+            <button class="btn btn-primary btn-sm" (click)="editarDireccion(row)" data-toggle="tooltip"
+                title="Editar"><i class="fas fa-edit fa-lg"></i></button>
+
+        </ng-template>
+    </ngx-datatable-column>
+
+</ngx-datatable>
+</div>

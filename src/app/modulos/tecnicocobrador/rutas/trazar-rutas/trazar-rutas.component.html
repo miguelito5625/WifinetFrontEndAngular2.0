@@ -1,0 +1,35 @@
+<div class="title">
+    <h3>Ruta</h3>
+</div>
+
+<div class="row">
+
+    <div class="col-12">
+
+        <div id="idRutaMapa">
+
+          <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="true" [zoom]="zoom" [fullscreenControl]="true" [mapTypeControl]='true' >
+            <!-- <agm-marker [latitude]="miLatitud" [longitude]="miLongitud"></agm-marker> -->
+            <agm-direction 
+            [origin]="origin" 
+            [destination]="destination"
+            [waypoints]="waypoints"
+          >
+        </agm-direction>
+        
+          </agm-map>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="row mt-2">
+  <div class="col-12 mr-auto">
+    <button class="btn btn-primary" (click)="crearImagen()"><i class="fas fa-download"></i> Crear imagen</button>
+    <a class="btn btn-primary" routerLink="/tecnicocobrador/rutas/listar"><i class="fas fa-arrow-left"></i> Regresar</a>
+  </div>
+</div>

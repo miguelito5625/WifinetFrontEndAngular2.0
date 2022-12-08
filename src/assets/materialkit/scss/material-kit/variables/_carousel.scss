@@ -1,0 +1,10 @@
+.carousel{
+  &.carousel-full-navigation{
+    .left{
+      cursor: url("src/assets/materialkit/img/arrow-left.png"), url("src/assets/materialkit/img/arrow-left.cur"), default !important;
+    }
+    .right{
+      cursor: url("src/assets/materialkit/img/arrow-right.png"), url("src/assets/materialkit/img/arrow-right.cur"), default !important;
+    }
+  }
+}

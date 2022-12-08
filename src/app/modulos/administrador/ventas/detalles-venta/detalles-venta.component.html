@@ -1,0 +1,104 @@
+<div class="title">
+
+
+    <h3>Detalles de la venta</h3>
+
+
+</div>
+
+<form [formGroup]="formularioVenta">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Cliente</label>
+                <input type="text" class="form-control datetimepicker" formControlName="nombre_cliente" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha de venta sistema</label>
+                <input type="text" class="form-control datetimepicker" formControlName="fecha_transaccion_sistema" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha de venta usuario</label>
+                <input type="text" class="form-control datetimepicker" formControlName="fecha_transaccion_usuario" readonly>
+            </div>
+        </div>
+
+
+         <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Subtotal</label>
+                <input type="number" class="form-control" formControlName="total_venta" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Ajuste</label>
+                <input type="number" class="form-control" formControlName="ajuste" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Total</label>
+                <input type="number" class="form-control" formControlName="total_ajuste" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Numero de Factura</label>
+                <input type="text" class="form-control" formControlName="numero_factura" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Numero de Recibo</label>
+                <input type="text" class="form-control" formControlName="numero_recibo" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Tipo de pago</label>
+                <input type="text" class="form-control" formControlName="tipo_pago" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12">
+            <div class="form-group">
+                <label class="bmd-label-floating">Detalle</label>
+                    <textarea class="form-control" formControlName="detalle" rows="3" readonly></textarea>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <a class="btn btn-primary" routerLink="/administrador/ventas/listar"><i class="fas fa-arrow-left"></i> Regresar</a>
+
+        </div>
+    </div>
+
+
+
+</form>
+
+

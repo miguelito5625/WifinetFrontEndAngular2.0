@@ -1,0 +1,23 @@
+
+.customMain{
+    margin-top: 100px; 
+    min-height: 600px;
+}
+
+.anchoLogo{
+    width: 60%;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    
+    .customMain{
+        margin-top: 100px; 
+        min-height: 200px;
+    }
+
+    .anchoLogo{
+        width: 80%;
+    }
+    
+  }

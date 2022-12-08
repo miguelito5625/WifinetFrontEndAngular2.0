@@ -1,0 +1,87 @@
+<div class="title">
+
+
+    <h3>Modificar la instalación</h3>
+
+
+</div>
+
+<form [formGroup]="formularioInstalacion" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Plan</label>
+                <select class="form-control selectpicker show-tick" id="selectPlan" formControlName="id_plan"
+                    #nombre_plan (change)="onChangePlanes(nombre_plan.options[nombre_plan.value].text)"
+                    data-style="btn btn-default" title="Seleccione el plan" data-size="7" data-live-search="true">
+                    <option *ngFor="let plan of listaPlanes" value="{{plan.id}}">{{plan.nombre}}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="ip_asignada" class="bmd-label-floating">Ip asignada</label>
+                <input type="text" class="form-control" formControlName="ip_asignada" autocomplete="off">
+            </div>
+        </div>
+
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Nombre queue</label>
+                <input type="text" class="form-control" formControlName="nombre_queue" readonly>
+            </div>
+        </div>
+
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+
+            <div class="form-group form-file-upload form-file-multiple">
+                <label for="inputArchivo">Comprobante de pago</label>
+                <input type="file" class="inputFileHidden" single #inputFilePdf formControlName="importFile"
+                    id="importFile" (change)="onFileChange($event.target.files)">
+                <div class="input-group">
+                    <input type="text" class="form-control inputFileVisible" placeholder="Seleccione un archivo"
+                        #labelImport for="importFile">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-fab btn-round btn-primary">
+                            <i class="material-icons">attach_file</i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="numero_factura" class="bmd-label-floating">No. Factura</label>
+                <input type="text" class="form-control" formControlName="numero_factura" autocomplete="off">
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary"><i class="material-icons">save</i> Guardar</button>
+            <!-- <a class="btn btn-primary" routerLink="/administrador/clientes/listar"><i class="material-icons">cancel</i>
+                Cancelar</a> -->
+        </div>
+    </div>
+
+
+
+</form>

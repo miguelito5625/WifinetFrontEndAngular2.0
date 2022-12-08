@@ -1,0 +1,55 @@
+<div class="title">
+
+
+    <h3>Mofidicar el plan</h3>
+
+
+</div>
+
+<form [formGroup]="formularioPlan" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+        
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombreplan" class="bmd-label-floating">Nombre del plan</label>
+                <input type="text" formControlName="nombre" required
+                    autocomplete="off" name="nombreplan" class="form-control" id="idnombreplan">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idvelocidad_subida" class="bmd-label-floating">Velocidad de subida</label>
+                <input type="text" formControlName="velocidad_subida" autocomplete="off" name="velocidad_subida"
+                    class="form-control" id="idvelocidad_subida" required>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idvelocidad_bajada" class="bmd-label-floating">Velocidad de bajada</label>
+                <input type="text" formControlName="velocidad_bajada" autocomplete="off" name="velocidad_bajada"
+                    class="form-control" id="idvelocidad_bajada">
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary" ><i class="material-icons">save</i> Guardar</button>
+            <a class="btn btn-primary" routerLink="/administrador/planes/listar"><i class="material-icons">cancel</i>
+                Cancelar</a>
+        </div>
+    </div>
+
+
+
+</form>

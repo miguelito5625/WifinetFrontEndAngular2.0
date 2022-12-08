@@ -1,0 +1,132 @@
+<div class="title">
+
+
+    <h3>Datos De La Instalación</h3>
+
+
+</div>
+
+<form [formGroup]="formularioInstalacion">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Cliente</label>
+                <input type="text" class="form-control" formControlName="nombre_cliente" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Plan</label>
+                <input type="text" class="form-control" formControlName="nombre_plan" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Ip Asignada</label>
+                <input type="text" class="form-control" formControlName="ip_asignada" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Queue</label>
+                <input type="text" class="form-control" formControlName="nombre_queue" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Estado</label>
+                <input type="text" class="form-control" formControlName="estado" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Fecha de alta real</label>
+                <input type="text" class="form-control" formControlName="fecha_alta_real" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Fecha de alta</label>
+                <input type="text" class="form-control" formControlName="fecha_alta" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Fecha de baja</label>
+                <input type="text" class="form-control" formControlName="fecha_baja" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Dirección</label>
+                <input type="text" class="form-control" formControlName="direccion" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group" (click)="abrirGoogleMaps()">
+                <label class="bmd-label-floating">Coordenadas</label>
+                <input type="text" class="form-control" style="cursor: pointer;" formControlName="coordenadas" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Primer mes gratis</label>
+                <input type="text" class="form-control" style="text-transform: capitalize;" formControlName="mes_gratis" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Referencia</label>
+                <input type="text" class="form-control" formControlName="referencia" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">No. Factura</label>
+                <input type="text" class="form-control" formControlName="numero_factura" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">No. Recibo</label>
+                <input type="text" class="form-control" formControlName="numero_recibo" readonly>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <label class="bmd-label-floating">Detalle</label>
+                    <textarea class="form-control" formControlName="detalle" rows="3" readonly></textarea>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <a class="btn btn-primary" routerLink="/administrador/transacciones-instalaciones/listar"><i class="fas fa-arrow-left"></i> Regresar</a>
+        </div>
+    </div>
+
+
+
+</form>

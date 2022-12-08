@@ -1,0 +1,150 @@
+<div class="title">
+
+
+    <h3>Modificar cobro</h3>
+
+
+</div>
+
+<form [formGroup]="formularioCobro" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Cliente</label>
+                <input type="text" class="form-control" formControlName="nombre_cliente" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Dirección</label>
+                <input type="text" class="form-control" formControlName="direccion_cliente" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Plan</label>
+                <input type="text" class="form-control" formControlName="nombre_plan" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Mes a cancelar</label>
+                <input type="text" class="form-control" style="text-transform: capitalize;"
+                    formControlName="mes_de_pago" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Año</label>
+                <input type="text" class="form-control" formControlName="anio_de_pago" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha que se hizo el cobro</label>
+                <input type="text" class="form-control datetimepicker" #fecha_transaccion_usuario
+                    id="idfecha_transaccion_usuario" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Subtotal</label>
+                <input type="text" class="form-control" formControlName="subTotal" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Ajuste</label>
+                <input type="number" class="form-control" formControlName="ajuste" (keyup)="onKeyUpAjuste()">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Total a pagar</label>
+                <input type="text" class="form-control" formControlName="totalAPagar" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Número de factura</label>
+                <input type="text" class="form-control" formControlName="numeroFactura">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Número de recibo</label>
+                <input type="text" class="form-control" formControlName="numeroRecibo">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Tipo de pago</label>
+                <select class="form-control selectpicker show-tick" formControlName="tipo_pago"
+                    data-style="btn btn-default" title="Seleccione el tipo de pago" data-size="7" id="selectTipoPago"
+                    data-live-search="true">
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Depósito">Depósito</option>
+<option value="Transferencia">Transferencia</option>
+                    <option value="Portal Web">Portal Web</option>
+                    <option value="POS">Terminal Punto de Venta (POS)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+
+            <div class="form-group form-file-upload form-file-multiple">
+                <label for="inputArchivo">Boleta de pago (opcional)</label>
+                <input type="file" class="inputFileHidden" single #inputFieldComprobante formControlName="importFile"
+                    id="importFile" (change)="onFileChange($event.target.files)">
+                <div class="input-group">
+                    <input type="text" class="form-control inputFileVisible" placeholder="Seleccione un archivo"
+                        #labelImport for="importFile">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-fab btn-round btn-primary">
+                            <i class="material-icons">attach_file</i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <label class="bmd-label-floating">Detalle</label>
+                <textarea class="form-control" formControlName="detalle" rows="3"></textarea>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary"><i class="material-icons">save</i> Guardar</button>
+            <a class="btn btn-primary" routerLink="/administrador/cobros/listar"><i class="material-icons">cancel</i>
+                Cancelar</a>
+        </div>
+    </div>
+
+
+
+</form>

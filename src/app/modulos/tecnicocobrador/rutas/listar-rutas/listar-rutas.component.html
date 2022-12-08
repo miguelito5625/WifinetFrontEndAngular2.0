@@ -1,0 +1,74 @@
+<div class="row mb-2">
+
+    <div class="col-12">
+        <h2 style="margin: 0px;">Rutas</h2>
+    </div>
+
+    <!-- <div class="col-12">
+        <button class="btn btn-primary" routerLink="/administrador/rutas/crear">Crear <i class="fas fa-plus-circle fa-lg"></i></button>
+    </div> -->
+
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-sm-4">
+        <div class="form-group has-default">
+            <input type="text" class="form-control" (keyup)="updateFilter($event)" placeholder="Buscar">
+        </div>
+    </div>
+</div>
+
+<div class="mb-4">
+    <ngx-datatable class="material" [rows]="rows" [scrollbarH]="true" [messages]="messages" [columnMode]="ColumnMode.force"
+    [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="15">
+
+    <ngx-datatable-column name="Acciones">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Acciones</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            
+           <div style="width: 100%;">
+
+            <button class="btn btn-primary btn-sm" (click)="trazarRuta(row)" data-toggle="tooltip"
+            title="Trazar Ruta"><i class="fas fa-road fa-lg"></i></button>
+
+            <button class="btn btn-primary btn-sm" (click)="detalleRuta(row)" data-toggle="tooltip"
+            title="Detalles"><i class="fas fa-info-circle fa-lg"></i></button>
+
+           </div>
+
+                
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="nombre_ruta">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Nombre ruta</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.nombre_ruta}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="nombre_empleado">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Empleado</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.nombre_empleado}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="cantidad_instalaciones">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Cantidad de instalaciones</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.cantidad_instalaciones}}
+        </ng-template>
+    </ngx-datatable-column>
+    
+
+</ngx-datatable>
+</div>

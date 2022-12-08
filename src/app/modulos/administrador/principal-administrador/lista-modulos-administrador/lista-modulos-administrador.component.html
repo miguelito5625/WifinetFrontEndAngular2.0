@@ -1,0 +1,45 @@
+<div class="title">
+  <h2>Modulos</h2>
+</div>
+
+<div class="row">
+
+  <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+    <button routerLink="/administrador/empleados" class="btn btn-primary btn-lg btn-block">Empleados</button>
+  </div>
+
+  <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 animate__animated animate__bounceInRight" #moduloClientes> -->
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4" #moduloClientes>
+      <button routerLink="/administrador/clientes" class="btn btn-primary btn-lg btn-block">Clientes</button>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+    <button routerLink="/administrador/planes" class="btn btn-primary btn-lg btn-block">Planes</button>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+    <button routerLink="/administrador/costo-transacciones" class="btn btn-primary btn-lg btn-block">Costo
+      Transacciones</button>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+      <button routerLink="/administrador/boletas-deposito" class="btn btn-primary btn-lg btn-block">Boletas de deposito</button>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+      <button routerLink="/administrador/rutas" class="btn btn-primary btn-lg btn-block">Rutas</button>
+    </div>
+
+
+  <div class="col-12 col-sm-12 col-md-4 col-lg-4" #moduloTransacciones>
+    <a href="javascript:;" class="btn btn-primary btn-lg btn-block dropdown-toggle nav-link"
+      data-toggle="dropdown">Transacciones</a>
+    <div class="dropdown-menu">
+      <a href="javascript:;" routerLink="/administrador/transacciones-instalaciones" class="dropdown-item">Instalaciones</a>
+      <a href="javascript:;" routerLink="/administrador/ventas" class="dropdown-item">Ventas</a>
+      <a href="javascript:;" routerLink="/administrador/cobros" class="dropdown-item">Cobro de servicios</a>
+      <a href="javascript:;" routerLink="/administrador/transacciones" class="dropdown-item">Todas las Transacciones</a>
+    </div>
+
+    
+  </div>

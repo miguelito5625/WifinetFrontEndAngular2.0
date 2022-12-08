@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+.modal-backdrop {
+    z-index: 0;
+}
+
+agm-map { height: 400px; /* height is required */ }
+
+/* espaciado al lado izquierdo del titulo de la barra de navegacion en la vista de computadoras */
+.navbar-brand{
+    margin-left: 24px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* Titulo de la barra de navegacion en dispositivos mobiles */
+    .navbar-brand{
+        margin-left: 0px;
+    }
+  }
+
+
+.btn-buscar{
+    margin-top: 32px;
+}
+
+@media only screen and (max-width: 991px) {
+    /* For mobile phones: */
+    .btn-buscar{
+        margin-top: 0px;
+    }
+  }

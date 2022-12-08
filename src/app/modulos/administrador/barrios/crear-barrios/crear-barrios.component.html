@@ -1,0 +1,64 @@
+<div class="title">
+
+
+    <h3>Introduzca los datos del barrio</h3>
+
+
+</div>
+
+<form [formGroup]="formularioBarrio" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Departamento</label>
+                <select (change)="cambioDepartamento()" class="form-control selectpicker show-tick"
+                    formControlName="departamento" required name="departamento" data-style="btn btn-default"
+                    title="Seleccione el departamento" data-size="7" data-live-search="true">
+                    <option *ngFor="let departamento of listaDepartamentos" value="{{departamento.id}}">
+                        {{departamento.nombre}}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Municipio</label>
+                <select class="form-control selectpicker show-tick"
+                    formControlName="municipio" required name="municipio" data-style="btn btn-default"
+                    title="Seleccione el municipio" data-size="7" data-live-search="true">
+                    <option *ngFor="let municipio of listaMunicipiosFiltrados" value="{{municipio.id}}">
+                        {{municipio.nombre}}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombreplan" class="bmd-label-floating">Barrio</label>
+                <input type="text" class="form-control" formControlName="nombreBarrio">
+            </div>
+        </div>
+
+       
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary" ><i class="material-icons">save</i> Guardar</button>
+            <a class="btn btn-primary" routerLink="/administrador/barrios/listar"><i class="material-icons">cancel</i>
+                Cancelar</a>
+        </div>
+    </div>
+
+
+
+</form>

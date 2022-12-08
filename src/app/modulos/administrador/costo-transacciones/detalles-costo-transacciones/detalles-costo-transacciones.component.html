@@ -1,0 +1,70 @@
+<div class="title">
+
+
+    <h3>Datos Del Costo Transacción</h3>
+
+
+</div>
+
+<form [formGroup]="formularioCostoTransaccion">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Tipo Transacción</label>
+                <input type="text" formControlName="tipo_transaccion" name="cui" class="form-control" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Nombre Plan</label>
+                <input type="text" formControlName="nombre_plan" class="form-control" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Costo</label>
+                <input type="text" formControlName="costo" class="form-control" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Fecha inicio</label>
+                <input type="text" formControlName="fecha_inicio" class="form-control" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha fin</label>
+                <input type="text" class="form-control" formControlName="fecha_fin" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Estado</label>
+                <input type="text" class="form-control" formControlName="estado" readonly>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <a class="btn btn-primary" routerLink="/administrador/costo-transacciones/listar"><i class="fas fa-arrow-left"></i> Regresar</a>
+        </div>
+    </div>
+
+
+
+</form>

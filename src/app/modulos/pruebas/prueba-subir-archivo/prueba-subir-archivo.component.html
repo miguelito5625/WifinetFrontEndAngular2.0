@@ -1,0 +1,43 @@
+<p>prueba-subir-archivo works!</p>
+
+<div class="container">
+
+    <form [formGroup]="formularioPrueba" (submit)="onSubmit()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" formControlName="correo" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1" placeholder="Password">
+        </div>
+
+        <!-- <div class="form-group">
+            <label for="inputArchivo">Archivo de pago (PDF)</label>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" single #inputFilePdf formControlName="importFile"
+                id="importFile" (change)="onFileChange($event.target.files)">
+                <label class="custom-file-label" #labelImport for="importFile"><i class="fas fa-search"></i>
+                    Seleccione el archivo de pago</label>
+            </div>
+        </div> -->
+
+        <div class="form-group form-file-upload form-file-multiple">
+          <input type="file" class="inputFileHidden" single #inputFilePdf formControlName="importFile" id="importFile" (change)="onFileChange($event.target.files)">
+          <div class="input-group">
+              <input type="text" class="form-control inputFileVisible" placeholder="Single File" #labelImport for="importFile">
+              <span class="input-group-btn">
+                  <button type="button" class="btn btn-fab btn-round btn-primary">
+                      <i class="material-icons">attach_file</i>
+                  </button>
+              </span>
+          </div>
+        </div>
+
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+</div>

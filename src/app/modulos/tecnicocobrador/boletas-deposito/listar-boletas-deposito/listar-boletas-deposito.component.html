@@ -1,0 +1,141 @@
+<div class="row mb-2">
+
+    <div class="col-12">
+        <h2 style="margin: 0px;">Boletas de deposito</h2>
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary" routerLink="/tecnicocobrador/boletas-deposito/crear">Crear <i
+                class="fas fa-plus-circle fa-lg"></i></button>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group has-default">
+            <label class="label-control mb-3">Buscar</label>
+            <input type="text" class="form-control" #filtroTexto>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group">
+            <label class="label-control">Filtrar por estado</label>
+            <select class="form-control selectpicker show-tick" id="selectFiltroEstado" #filtroEstado data-style="btn btn-default" title=""
+                data-size="7" data-live-search="false">
+                <option value="">Todas</option>
+                <option value="cuadrado">Cuadradas</option>
+                <!-- <option value="sin cuadrar">Sin cuadrar</option> -->
+            </select>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+        <button class="btn btn-primary btn-buscar" (click)="filtrarDatos()"><i class="fas fa-search fa-lg"></i></button>
+    </div>
+
+</div>
+
+<div class="mb-4">
+    <ngx-datatable class="material" [rows]="rows" [scrollbarH]="true" [messages]="messages"
+        [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="15">
+
+        <ngx-datatable-column name="Acciones" [width]="325">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Acciones</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+
+                <button *ngIf="row.estado === 'sin cuadrar'" class="btn btn-primary btn-sm"
+                    (click)="cuadrarBoletaDeposito(row)" data-toggle="tooltip" title="Realizar cuadre"><i
+                        class="fas fa-money-check-alt fa-lg"></i></button>
+
+                <button *ngIf="row.estado === 'sin cuadrar'" class="btn btn-primary btn-sm"
+                    (click)="gestionarTransacciones(row)" data-toggle="tooltip" title="Gestionar Transacciones"><i
+                        class="fas fa-clipboard-check fa-lg"></i></button>
+
+                <a *ngIf="row.url_boleta" class="btn btn-primary btn-sm" data-toggle="tooltip" href="{{row.url_boleta}}"
+                    target="_blank" title="Boleta"><i class="fas fa-file-download fa-lg"></i></a>
+
+                <button class="btn btn-primary btn-sm" (click)="detalleBoleta(row)" data-toggle="tooltip"
+                    title="Detalles"><i class="fas fa-info-circle fa-lg"></i></button>
+
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="numero_boleta">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Numero de Boleta</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span class="font-weight-bold">{{row.numero_boleta}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="fecha_deposito">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Fecha del deposito</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.fecha_deposito_formateado}}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="monto_depositado">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Monto</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.monto_depositado}}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="nombre_banco">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Banco</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.nombre_banco}}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="estado">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Estado</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span class="font-weight-bold">{{row.estado.charAt(0).toUpperCase() + row.estado.slice(1)}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="cantidad_transacciones">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Transacciones</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.cantidad_transacciones}}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="cantidad_ajustes">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Ajustes</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.cantidad_ajustes}}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="balance">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Balance</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.balance}}
+            </ng-template>
+        </ngx-datatable-column>
+
+
+    </ngx-datatable>
+</div>

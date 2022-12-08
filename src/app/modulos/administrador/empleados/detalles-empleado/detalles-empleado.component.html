@@ -1,0 +1,163 @@
+
+<div class="title">
+
+
+    <h3>Datos Del Empleado</h3>
+
+
+</div>
+
+<form [formGroup]="formularioEmpleado" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idcui" class="bmd-label-floating">CUI</label>
+                <input type="text" (keyup)="onKeyUpCui()" formControlName="cui" pattern="^([0-9]){13}" required autocomplete="off" name="cui" class="form-control" id="idcui" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombre1" class="bmd-label-floating">Primer nombre</label>
+                <input type="text" formControlName="primer_nombre" autocomplete="off" name="nombre1" class="form-control" id="idnombre1" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombre2" class="bmd-label-floating">Segundo nombre</label>
+                <input type="text" formControlName="segundo_nombre" autocomplete="off" name="nombre2" class="form-control" id="idnombre2" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idapellido1" class="bmd-label-floating">Primer apellido</label>
+                <input type="text" formControlName="primer_apellido" autocomplete="off" name="apellido1" class="form-control" id="idapellido1" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idapellido2" class="bmd-label-floating">Segundo apellido</label>
+                <input type="text" formControlName="segundo_apellido" autocomplete="off" name="apellido2" class="form-control" id="idapellido2" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha de nacimiento</label>
+                <!-- <input type="text" formControlName="fecha_nacimiento" name="fecha_nacimiento" autocomplete="off" data-date-format="DD MMMM YYYY" required id="idfecha_nacimiento" class="form-control datetimepicker"> -->
+                <input type="text" #fecha_nacimiento  name="fecha_nacimiento" autocomplete="off" data-date-format="DD MMMM YYYY" required id="idfecha_nacimiento" class="form-control datetimepicker" readonly>
+                <input type="hidden" name="fecha_nacimiento_oculta" id="idfecha_nacimiento_oculta" value="" />  
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="iddepartamento" class="bmd-label-floating">Departamento</label>
+                <input type="text" formControlName="departamento" autocomplete="off" class="form-control" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idapellido2" class="bmd-label-floating">Municipio</label>
+                <input type="text" class="form-control" formControlName="municipio" autocomplete="off" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idapellido2" class="bmd-label-floating">Barrio</label>
+                <input type="text" class="form-control" formControlName="barrio" autocomplete="off" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="especificacion" class="bmd-label-floating">Dirección exacta</label>
+                <input type="text" class="form-control" formControlName="especificacion" autocomplete="off" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idtelefono" class="bmd-label-floating">Teléfono</label>
+                <input type="text" class="form-control" formControlName="telefono" pattern="([0-9]){8}" autocomplete="off" readonly>
+            </div>
+        </div>
+
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idcorreo_electronico" class="bmd-label-floating">Correo Electrónico (opcional)</label>
+                <input type="email" class="form-control" formControlName="correo_electronico" pattern="([0-9]){8}" autocomplete="off" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha de alta</label>
+                <!-- <input type="text" formControlName="fecha_alta" name="fecha_alta" autocomplete="off" data-date-format="DD MMMM YYYY" value="" required id="idfecha_alta" class="form-control datetimepicker"> -->
+                <input type="text" #fecha_alta name="fecha_alta" autocomplete="off" data-date-format="DD MMMM YYYY" value="" required id="idfecha_alta" class="form-control datetimepicker" readonly>
+                <input type="hidden"  name="fecha_alta_oculta" id="idfecha_alta_oculta" value="" />  
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idlicencia_conducir" class="bmd-label-floating">Licencia de conducir</label>
+                <input type="text" class="form-control" formControlName="licencia_conducir" pattern="([0-9]){13}" autocomplete="off" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idsalario" class="bmd-label-floating">Salario</label>
+                <input type="text" class="form-control" formControlName="salario" pattern="([0-9]){8}" autocomplete="off" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idapellido2" class="bmd-label-floating">Puesto</label>
+                <input type="text" class="form-control" formControlName="puesto" autocomplete="off" readonly>
+            </div>
+        </div>
+
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idapellido2" class="bmd-label-floating">Estado</label>
+                <input type="text" class="form-control" formControlName="estado" autocomplete="off" readonly>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <a class="btn btn-primary" routerLink="/administrador/empleados/listar"><i class="fas fa-arrow-left"></i> Regresar</a>
+        </div>
+    </div>
+
+
+
+</form>

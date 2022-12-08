@@ -1,0 +1,82 @@
+<div class="title">
+
+
+    <h3>Introduzca los datos del ajuste</h3>
+
+
+</div>
+
+<form [formGroup]="formularioAjuste" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Numero de boleta</label>
+                <input type="text" class="form-control" formControlName="numeroBoleta" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Banco</label>
+                <input type="text" class="form-control" formControlName="nombreBanco" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Monto de Boleta</label>
+                <input type="text" class="form-control" formControlName="montoBoleta" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Fecha</label>
+                <input type="text" class="form-control" formControlName="fechaAjuste" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Tipo de Ajuste</label>
+                <select class="form-control selectpicker show-tick" formControlName="tipoAjuste" data-style="btn btn-default" title="Seleccione una opción" data-size="7" data-live-search="false">
+                    <option *ngFor="let tipoAjuste of listaDeTiposAjustes" value="{{tipoAjuste.nombre}}">{{tipoAjuste.nombre}}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Monto de ajuste</label>
+                <input type="number" class="form-control" formControlName="montoAjuste">
+            </div>
+        </div>
+
+
+        <div class="col-12">
+            <div class="form-group">
+                <label class="bmd-label-floating">Justificación</label>
+                    <textarea class="form-control" formControlName="detalleAjuste" rows="3"></textarea>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary" ><i class="material-icons">save</i> Guardar</button>
+            <a class="btn btn-primary" routerLink="/administrador/ajustes-boletas-deposito/listar"><i class="material-icons">cancel</i>
+                Cancelar</a>
+        </div>
+    </div>
+
+
+
+</form>

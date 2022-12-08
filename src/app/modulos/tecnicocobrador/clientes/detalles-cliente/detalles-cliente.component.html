@@ -1,0 +1,97 @@
+<div class="title">
+
+
+    <h3>Datos Del Cliente</h3>
+
+
+</div>
+
+<form [formGroup]="formularioCliente">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idcui" class="bmd-label-floating">CUI</label>
+                <input type="text" formControlName="cui" pattern="^([0-9]){13}"
+                    autocomplete="off" name="cui" class="form-control" id="idcui" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombre1" class="bmd-label-floating">Primer nombre</label>
+                <input type="text" formControlName="primer_nombre" autocomplete="off" name="nombre1"
+                    class="form-control" id="idnombre1" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombre2" class="bmd-label-floating">Segundo nombre</label>
+                <input type="text" formControlName="segundo_nombre" autocomplete="off" name="nombre2"
+                    class="form-control" id="idnombre2" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idapellido1" class="bmd-label-floating">Primer apellido</label>
+                <input type="text" formControlName="primer_apellido" autocomplete="off" name="apellido1"
+                    class="form-control" id="idapellido1" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idapellido2" class="bmd-label-floating">Segundo apellido</label>
+                <input type="text" formControlName="segundo_apellido" autocomplete="off" name="apellido2"
+                    class="form-control" id="idapellido2" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha de nacimiento</label>
+                <input type="text" formControlName="fecha_nacimiento" name="fecha_nacimiento" autocomplete="off" readonly
+                    id="idfecha_nacimiento" class="form-control">
+            </div>
+        </div>
+
+       
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idtelefono" class="bmd-label-floating">Teléfono</label>
+                <input type="text" formControlName="telefono" pattern="([0-9]){8}" autocomplete="off" name="telefono"
+                    class="form-control" id="idtelefono" readonly>
+            </div>
+        </div>
+
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idcorreo_electronico" class="bmd-label-floating">Correo Electrónico (opcional)</label>
+                <input type="email" formControlName="correo_electronico" pattern="([0-9]){8}" autocomplete="off"
+                    name="correo_electronico" class="form-control" id="idcorreo_electronico" readonly>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <a class="btn btn-primary" routerLink="/tecnicocobrador/clientes/listar"><i class="fas fa-arrow-left"></i> Regresar</a>
+        </div>
+    </div>
+
+
+
+</form>

@@ -1,0 +1,191 @@
+
+<div class="title">
+
+
+    <h3>Modificar Empleado</h3>
+
+
+</div>
+
+<form [formGroup]="formularioEmpleado" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idcui" class="bmd-label-floating">CUI</label>
+                <input type="text" (keyup)="onKeyUpCui()" formControlName="cui" pattern="^([0-9]){13}" required autocomplete="off" name="cui" class="form-control" id="idcui">
+                <span class="bmd-help">Cui del empleado</span>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombre1" class="bmd-label-floating">Primer nombre</label>
+                <input type="text" formControlName="primer_nombre" autocomplete="off" name="nombre1" class="form-control" id="idnombre1" required>
+                <span class="bmd-help">Escriba el primer nombre del empleado</span>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombre2" class="bmd-label-floating">Segundo nombre</label>
+                <input type="text" formControlName="segundo_nombre" autocomplete="off" name="nombre2" class="form-control" id="idnombre2">
+                <span class="bmd-help">Escriba el segundo nombre del empleado</span>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idapellido1" class="bmd-label-floating">Primer apellido</label>
+                <input type="text" formControlName="primer_apellido" autocomplete="off" name="apellido1" class="form-control" id="idapellido1" required>
+                <span class="bmd-help">Escriba el primer apellido del empleado</span>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idapellido2" class="bmd-label-floating">Segundo apellido</label>
+                <input type="text" formControlName="segundo_apellido" autocomplete="off" name="apellido2" class="form-control" id="idapellido2">
+                <span class="bmd-help">Escriba el segundo apellido del empleado</span>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha de nacimiento</label>
+                <!-- <input type="text" formControlName="fecha_nacimiento" name="fecha_nacimiento" autocomplete="off" data-date-format="DD MMMM YYYY" required id="idfecha_nacimiento" class="form-control datetimepicker"> -->
+                <input type="text" #fecha_nacimiento  name="fecha_nacimiento" autocomplete="off"  required id="idfecha_nacimiento" class="form-control datetimepicker" readonly>
+                <!-- <input type="hidden" name="fecha_nacimiento_oculta" id="idfecha_nacimiento_oculta" value="" />   -->
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Departamento</label>
+                <select (change)="cambioDepartamento()" id="selectDepartamento" class="form-control selectpicker show-tick" formControlName="departamento" required name="departamento" data-style="btn btn-default" title="Seleccione el departamento" data-size="7" data-live-search="true">
+                    <!-- <option data-tokens="Administrador">Izabal</option>
+                    <option data-tokens="Cobrador">Chiquimula</option> -->
+                    <option *ngFor="let departamento of listaDepartamentos" value="{{departamento.id}}">{{departamento.nombre}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Municipio</label>
+                <select (change)="cambioMunicipio()" id="selectMunicipio" class="form-control selectpicker show-tick" formControlName="municipio" required name="municipio" data-style="btn btn-default" title="Seleccione el municipio" data-size="7" data-live-search="true">
+                    <option *ngFor="let municipio of listaMunicipiosFiltrados" value="{{municipio.id}}">{{municipio.nombre}}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Barrio</label>
+                <select class="form-control selectpicker show-tick" id="selectBarrio" formControlName="barrio" required name="barrio" data-style="btn btn-default" title="Seleccione el barrio" data-size="7" data-live-search="true">
+                    <option *ngFor="let barrio of listaBarriosFiltrados" value="{{barrio.id_barrio}}">{{barrio.nombre_barrio}}</option>
+                </select>
+
+
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="especificacion" class="bmd-label-floating">Dirección exacta</label>
+                <input type="text" formControlName="especificacion" autocomplete="off" name="especificacion" class="form-control" id="especificacion">
+                <span class="bmd-help">Escriba una referencia de la direccion</span>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idtelefono" class="bmd-label-floating">Teléfono</label>
+                <input type="text" formControlName="telefono" pattern="([0-9]){8}" autocomplete="off" name="telefono" class="form-control" id="idtelefono">
+                <span class="bmd-help">Escriba el teléfono de contacto del empleado</span>
+            </div>
+        </div>
+
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idcorreo_electronico" class="bmd-label-floating">Correo Electrónico (opcional)</label>
+                <input type="email" formControlName="correo_electronico" autocomplete="off" name="correo_electronico" class="form-control" id="idcorreo_electronico">
+                <span class="bmd-help">Escriba el email del empleado</span>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha de alta</label>
+                <!-- <input type="text" formControlName="fecha_alta" name="fecha_alta" autocomplete="off" data-date-format="DD MMMM YYYY" value="" required id="idfecha_alta" class="form-control datetimepicker"> -->
+                <input type="text" #fecha_alta name="fecha_alta" autocomplete="off"  value="" required id="idfecha_alta" class="form-control datetimepicker" readonly>
+                <!-- <input type="hidden"  name="fecha_alta_oculta" id="idfecha_alta_oculta" value="" />   -->
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idlicencia_conducir" class="bmd-label-floating">Licencia de conducir</label>
+                <input type="text" formControlName="licencia_conducir" pattern="([0-9]){13}" autocomplete="off" name="licencia_conducir" class="form-control" id="idlicencia_conducir">
+                <span class="bmd-help">Escriba el numero del licencia del empleado</span>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idsalario" class="bmd-label-floating">Salario</label>
+                <input type="text" formControlName="salario" autocomplete="off" name="salario" class="form-control" id="idsalario">
+                <span class="bmd-help">Escriba el salario del empleado</span>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Puesto</label>
+                <select class="form-control selectpicker show-tick" id="selectPuesto" formControlName="puesto" required name="puesto" data-style="btn btn-default" title="Seleccione el puesto" data-size="7" data-live-search="true">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Técnico/Cobrador">Técnico/Cobrador</option>
+                </select>
+            </div>
+        </div>
+
+
+
+        <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-check">
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" (change)="OnChangeEstadoEmpleado()" formControlName="check_estado" name="estado" type="checkbox" value="Activo">
+                    Activar
+                    <span class="form-check-sign">
+                        <span class="check"></span>
+                    </span>
+                </label>
+            </div>
+        </div> -->
+
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary" ><i class="material-icons">save</i> Guardar</button>
+            <a class="btn btn-primary" routerLink="/administrador/empleados/listar"><i class="material-icons">cancel</i> Cancelar</a>
+        </div>
+    </div>
+
+
+
+</form>

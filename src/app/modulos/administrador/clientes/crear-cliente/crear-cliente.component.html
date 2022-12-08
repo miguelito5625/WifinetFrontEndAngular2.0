@@ -1,0 +1,230 @@
+<div class="title">
+
+
+    <h3>Introduzca los datos del cliente</h3>
+
+
+</div>
+
+<form [formGroup]="formularioCliente" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <!-- <div class="form-group"
+                [className]="this.formularioCliente.controls.cui.valid ? 'has-success' : 'has-danger'"> -->
+                <div class="form-group">
+                <label for="idcui" class="bmd-label-floating">CUI</label>
+                <input type="text" formControlName="cui" pattern="^([0-9]){13}" required autocomplete="off" name="cui"
+                    class="form-control is-valid" id="idcui">
+                <!-- <div *ngIf="this.formularioCliente.controls.cui.touched">
+                    <span *ngIf="this.formularioCliente.controls.cui.valid" class="form-control-feedback">
+                        <i class="material-icons">done</i>
+                    </span>
+                    <span *ngIf="!this.formularioCliente.controls.cui.valid" class="form-control-feedback">
+                        <i class="material-icons">clear</i>
+                    </span>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombre1" class="bmd-label-floating">Primer nombre</label>
+                <input type="text" formControlName="primer_nombre" autocomplete="off" name="nombre1"
+                    class="form-control" id="idnombre1" required>
+                <span class="bmd-help">Escriba el primer nombre del empleado</span>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombre2" class="bmd-label-floating">Segundo nombre</label>
+                <input type="text" formControlName="segundo_nombre" autocomplete="off" name="nombre2"
+                    class="form-control" id="idnombre2">
+                <span class="bmd-help">Escriba el segundo nombre del empleado</span>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idapellido1" class="bmd-label-floating">Primer apellido</label>
+                <input type="text" formControlName="primer_apellido" autocomplete="off" name="apellido1"
+                    class="form-control" id="idapellido1" required>
+                <span class="bmd-help">Escriba el primer apellido del empleado</span>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idapellido2" class="bmd-label-floating">Segundo apellido</label>
+                <input type="text" formControlName="segundo_apellido" autocomplete="off" name="apellido2"
+                    class="form-control" id="idapellido2">
+                <span class="bmd-help">Escriba el segundo apellido del empleado</span>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha de nacimiento</label>
+                <input type="text" #fecha_nacimiento name="fecha_nacimiento" autocomplete="off" required
+                    id="idfecha_nacimiento" class="form-control datetimepicker">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Departamento</label>
+                <select (change)="cambioDepartamento()" class="form-control selectpicker show-tick"
+                    formControlName="departamento" required name="departamento" data-style="btn btn-default"
+                    title="Seleccione el departamento" data-size="7" data-live-search="true">
+                    <option *ngFor="let departamento of listaDepartamentos" value="{{departamento.id}}">
+                        {{departamento.nombre}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Municipio</label>
+                <select (change)="cambioMunicipio()" class="form-control selectpicker show-tick"
+                    formControlName="municipio" required name="municipio" data-style="btn btn-default"
+                    title="Seleccione el municipio" data-size="7" data-live-search="true">
+                    <option *ngFor="let municipio of listaMunicipiosFiltrados" value="{{municipio.id}}">
+                        {{municipio.nombre}}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Barrio</label>
+                <select class="form-control selectpicker show-tick" formControlName="barrio" required name="barrio"
+                    data-style="btn btn-default" title="Seleccione el barrio" data-size="7" data-live-search="true">
+                    <option *ngFor="let barrio of listaBarriosFiltrados" value="{{barrio.id_barrio}}">{{barrio.nombre_barrio}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="especificacion" class="bmd-label-floating">Dirección exacta</label>
+                <input type="text" formControlName="especificacion" autocomplete="off" name="especificacion"
+                    class="form-control" id="especificacion">
+                <span class="bmd-help">Escriba una referencia de la direccion</span>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Latitud</label>
+                <input type="text" (click)="abrirMapa()" value="{{latitude}}" class="form-control" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Longitud</label>
+                <input type="text" (click)="abrirMapa()" value="{{longitude}}" class="form-control" readonly>
+            </div>
+        </div>
+        
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idtelefono" class="bmd-label-floating">Teléfono</label>
+                <input type="text" formControlName="telefono" pattern="([0-9]){8}" autocomplete="off" name="telefono"
+                    class="form-control" id="idtelefono">
+                <span class="bmd-help">Escriba el teléfono de contacto del empleado</span>
+            </div>
+        </div>
+
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <!-- <div class="form-group"
+                [className]="this.formularioCliente.controls.correo_electronico.valid ? 'has-success' : 'has-danger'"> -->
+                <div class="form-group">
+                <label for="idcorreo_electronico" class="bmd-label-floating">Correo Electrónico (opcional)</label>
+                <input type="email" (keyup)="onKeyUpInput()" formControlName="correo_electronico" autocomplete="off"
+                    name="correo_electronico" class="form-control" id="idcorreo_electronico">
+
+                <!-- <div *ngIf="this.formularioCliente.controls.correo_electronico.touched">
+                    <span *ngIf="this.formularioCliente.controls.correo_electronico.valid"
+                        class="form-control-feedback">
+                        <i class="material-icons">done</i>
+                    </span>
+                    <span *ngIf="!this.formularioCliente.controls.correo_electronico.valid"
+                        class="form-control-feedback">
+                        <i class="material-icons">clear</i>
+                    </span>
+                </div> -->
+
+            </div>
+        </div>
+
+
+       
+
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary" ><i class="material-icons">save</i> Guardar</button>
+            <a class="btn btn-primary" routerLink="/administrador/clientes/listar"><i class="material-icons">cancel</i>
+                Cancelar</a>
+        </div>
+    </div>
+
+
+
+</form>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalMapa" tabindex="" role="dialog" aria-labelledby="modalMapaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalMapaLabel">Mapa</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+            <div class="col-12">
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Buscar" #buscarDireccion>
+                </div>
+    
+            </div>
+    
+            <div class="col-12">
+    
+                <agm-map (mapClick)="placeMarker($event)" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="true" [zoom]="zoom"
+                    [fullscreenControl]="true" [mapTypeControl]='true'>
+                    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                </agm-map>
+    
+            </div>
+            
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--  termina Modal -->

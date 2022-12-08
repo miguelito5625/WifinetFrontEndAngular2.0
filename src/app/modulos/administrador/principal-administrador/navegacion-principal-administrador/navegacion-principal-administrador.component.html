@@ -1,0 +1,107 @@
+<nav class="navbar navbar-default  fixed-top navbar-expand-lg" id="sectionsNav">
+  <div class="container-fluid">
+    <div class="navbar-translate">
+      <a class="navbar-brand" routerLink="/">
+        WIFINET </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+
+        <li class="dropdown nav-item">
+          <a href="#" class="active dropdown-toggle nav-link" data-toggle="dropdown">
+            Transacciones
+          </a>
+          <div class="dropdown-menu dropdown-with-icons">
+            <a routerLink="/administrador/transacciones-instalaciones/listar" class="dropdown-item">Instalaciones</a>
+            <a routerLink="/administrador/ventas/listar" class="dropdown-item">Ventas</a>
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">Cobros</h6>
+            <a routerLink="/administrador/cobros/listar" class="dropdown-item">Cobros de servicios</a>
+            <a routerLink="/administrador/rutas/listar" class="dropdown-item">Rutas de cobro</a>
+          </div>
+
+        </li>
+
+
+        <li class="dropdown nav-item">
+          <a href="#" class="active dropdown-toggle nav-link" data-toggle="dropdown">
+            Planes y costos
+          </a>
+          <div class="dropdown-menu dropdown-with-icons">
+            <a routerLink="/administrador/planes/listar" class="dropdown-item">Planes</a>
+            <a routerLink="/administrador/costo-transacciones/listar" class="dropdown-item">Costos de transacciones</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/administrador/clientes/listar">
+            Clientes
+          </a>
+        </li>
+
+        <li class="dropdown nav-item">
+          <a href="#" class="active dropdown-toggle nav-link" data-toggle="dropdown">
+            Depositos
+          </a>
+          <div class="dropdown-menu dropdown-with-icons">
+            <a routerLink="/administrador/boletas-deposito/listar" class="dropdown-item">Boletas de deposito</a>
+            <a routerLink="/administrador/boletas-deposito/todos-los-ajustes" class="dropdown-item">Ajustes sobre boletas</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/administrador/empleados/listar">
+            Empleados
+          </a>
+        </li>
+
+          <li class="dropdown nav-item">
+          <a href="#" class="active dropdown-toggle nav-link" data-toggle="dropdown">
+            Configurables
+          </a>
+          <div class="dropdown-menu dropdown-with-icons">
+            <a routerLink="/administrador/barrios/listar" class="dropdown-item">Gestión de barrios</a>
+            <a routerLink="/administrador/tipos-ajustes/listar" class="dropdown-item">Gestión tipos de ajuste de boleta</a>          </div>
+        </li>
+
+
+
+        <li class="dropdown nav-item">
+          <a href="#" class="active dropdown-toggle nav-link" data-toggle="dropdown">
+            Reportes
+          </a>
+          <div class="dropdown-menu dropdown-with-icons">
+
+            <a routerLink="/administrador/transacciones/listar" class="dropdown-item">Todas las transacciones</a>
+            <a routerLink="/administrador/clientes-morosos/listar"  class="dropdown-item">Morosos</a>
+
+          </div>
+        </li>
+
+
+        <li class="dropdown nav-item">
+          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <i class="material-icons">account_circle</i> {{usuario.nombre_usuario}}
+          </a>
+          <div class="dropdown-menu dropdown-with-icons">
+            <a class="dropdown-item">
+              {{usuario.nombre_apellido}}
+            </a>
+            <a routerLink="javascript:void(0)" (click)="cerrarSesion()" class="dropdown-item">
+              Cerrar Sesión
+            </a>
+          </div>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>

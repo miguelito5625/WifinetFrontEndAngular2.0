@@ -1,0 +1,124 @@
+<div class="title">
+
+
+    <h3>Quitar instalaciones de la ruta</h3>
+
+
+</div>
+
+<form [formGroup]="formularioRuta">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Nombre Ruta</label>
+                <input type="text" class="form-control" formControlName="nombre_ruta" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Empleado</label>
+                <input type="text" class="form-control" formControlName="nombre_empleado" readonly>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <br>
+
+
+</form>
+
+
+
+
+<!-- inicia la tabla de la instalaciones asigandas -->
+<div class="row">
+
+    <div class="col-12">
+        <h3>Seleccione las instalaciones que desea quitar</h3>
+    </div>
+
+
+    <div class="col-12">
+ 
+     <ngx-datatable class="material" [rows]="rows" [scrollbarH]="true" [messages]="messages" [columnMode]="ColumnMode.force"
+     [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="15"
+     [selected]="selected"
+    [selectionType]="SelectionType.checkbox"
+    [selectAllRowsOnPage]="false"
+    (select)="onSelect($event)"
+     >
+ 
+     <ngx-datatable-column
+     [width]="30"
+     [sortable]="false"
+     [canAutoResize]="false"
+     [draggable]="false"
+     [resizeable]="false"
+     [headerCheckboxable]="true"
+     [checkboxable]="true"
+   >          </ngx-datatable-column>
+
+     <ngx-datatable-column name="nombre_cliente">
+         <ng-template let-column="column" ngx-datatable-header-template>
+             <span>Cliente</span>
+         </ng-template>
+         <ng-template let-row="row" ngx-datatable-cell-template>
+             {{row.nombre_cliente}}
+         </ng-template>
+     </ngx-datatable-column>
+ 
+     <ngx-datatable-column name="nombre_plan">
+         <ng-template let-column="column" ngx-datatable-header-template>
+             <span>Plan</span>
+         </ng-template>
+         <ng-template let-row="row" ngx-datatable-cell-template>
+             {{row.nombre_plan}}
+         </ng-template>
+     </ngx-datatable-column>
+ 
+     <ngx-datatable-column name="direccion">
+         <ng-template let-column="column" ngx-datatable-header-template>
+             <span>Direccion</span>
+         </ng-template>
+         <ng-template let-row="row" ngx-datatable-cell-template>
+             {{row.especificacion_direccion}}, {{row.barrio}}, {{row.municipio}}, {{row.departamento}}
+         </ng-template>
+     </ngx-datatable-column>
+ 
+ 
+     <ngx-datatable-column name="ip_asignada">
+         <ng-template let-column="column" ngx-datatable-header-template>
+             <span>Ip asignada</span>
+         </ng-template>
+         <ng-template let-row="row" ngx-datatable-cell-template>
+             {{row.ip_asignada}}
+         </ng-template>
+     </ngx-datatable-column>
+ 
+ 
+ 
+ </ngx-datatable>
+ 
+ 
+    </div>
+ 
+ 
+ </div>
+ <!-- finaliza la tabla de la instalaciones activas -->
+
+
+
+ <div class="row mt-2">
+    <div class="col-12 mr-auto">
+        <button class="btn btn-primary" (click)="onSubmit()"><i class="material-icons">save</i> Guardar</button>
+        <a class="btn btn-primary" routerLink="/administrador/rutas/listar"><i class="material-icons">cancel</i>
+            Cancelar</a>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+<div class="title">
+
+
+    <h3>Datos De La Transacción</h3>
+
+
+</div>
+
+<form [formGroup]="formularioTransaccion">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Cliente</label>
+                <input type="text" class="form-control" formControlName="cliente" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Tipo Transacción</label>
+                <input type="text" class="form-control" formControlName="tipo_transaccion" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Factura</label>
+                <input type="text" class="form-control" formControlName="numero_factura" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Recibo</label>
+                <input type="text" class="form-control" formControlName="numero_recibo" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Fecha Sistema</label>
+                <input type="text" class="form-control" formControlName="fecha_sistema" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Fecha Usuario</label>
+                <input type="text" class="form-control" formControlName="fecha_usuario" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Tipo De Pago</label>
+                <input type="text" class="form-control" formControlName="tipo_pago" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Ajuste</label>
+                <input type="number" class="form-control" formControlName="ajuste" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">SubTotal</label>
+                <input type="text" class="form-control" formControlName="subtotal" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Total</label>
+                <input type="text" class="form-control" formControlName="total" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Usuario Que Registra</label>
+                <input type="text" class="form-control" formControlName="nombre_usuario" readonly>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <label for="iddetalles" class="bmd-label-floating">Detalle</label>
+                    <textarea class="form-control" formControlName="detalle" rows="3" readonly></textarea>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <a class="btn btn-primary" routerLink="/administrador/transacciones/listar"><i class="fas fa-arrow-left"></i> Regresar</a>
+        </div>
+    </div>
+
+
+
+</form>

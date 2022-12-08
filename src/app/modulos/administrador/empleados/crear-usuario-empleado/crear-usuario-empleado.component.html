@@ -1,0 +1,43 @@
+<div class="title">
+
+
+    <h3>Crear usuario para <span class="font-weight-bold">{{nombreEmpleado}}</span></h3>
+
+
+</div>
+
+<form [formGroup]="formularioUsuario" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombreplan" class="bmd-label-floating">Usuario</label>
+                <input type="text" class="form-control" (keyup)="keyupNombreUsuario()" formControlName="nombre_usuario">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombreplan" class="bmd-label-floating">Contraseña</label>
+                <input type="password" class="form-control" formControlName="credencial">
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary" ><i class="material-icons">save</i> Guardar</button>
+            <a class="btn btn-primary" routerLink="/administrador/empleados/listar"><i class="material-icons">cancel</i>
+                Cancelar</a>
+        </div>
+    </div>
+
+
+
+</form>

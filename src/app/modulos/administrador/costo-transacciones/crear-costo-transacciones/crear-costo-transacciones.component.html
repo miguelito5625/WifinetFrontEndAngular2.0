@@ -1,0 +1,86 @@
+<div class="title">
+
+
+    <h3>Crear costo transacciones</h3>
+
+
+</div>
+
+<form [formGroup]="formularioCostoTransaccion" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Tipo transacción</label>
+                <select class="form-control selectpicker show-tick" (change)="onChangeTipoTransaccion()" formControlName="tipo_transaccion" name="tipo_transaccion"
+                    data-style="btn btn-default" title="Seleccione el tipo de transacción" data-size="7" data-live-search="true">
+                    <option value="Instalación">Instalación</option>
+                    <option value="Cobro Mensualidad">Cobro Mensualidad</option>
+                    <option value="Descuento por Referencia">Descuento por Referencia</option>
+                </select>
+            </div>
+        </div>
+
+        <div *ngIf="esCobroMensualidad" class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Plan</label>
+                <select class="form-control selectpicker show-tick" formControlName="plan" required
+                    data-style="btn btn-default" title="Seleccione el plan" data-size="7" data-live-search="true">
+                    <option *ngFor="let plan of listaPlanes" value="{{plan.id}}">{{plan.nombre}}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idcontotransacciones" class="bmd-label-floating">Costo</label>
+                <input type="text" formControlName="costo" autocomplete="off" class="form-control"
+                    id="idcontotransacciones" required>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idfecha_inicio" class="bmd-label-floating">Fecha Inicio</label>
+                <input type="text" formControlName="fecha_inicio" autocomplete="off" class="form-control"
+                    id="idfecha_inicio">
+            </div>
+        </div>
+
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-check">
+                <br>
+                <label class="form-check-label">
+                    <input class="form-control form-check-input" (change)="OnChangeEstado()"
+                        formControlName="check_estado" type="checkbox" disabled>
+                    Activar
+                    <span class="form-check-sign">
+                        <span class="check"></span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary"><i class="material-icons">save</i> Guardar</button>
+            <a class="btn btn-primary" routerLink="/administrador/costo-transacciones/listar"><i class="material-icons">cancel</i>
+                Cancelar</a>
+        </div>
+    </div>
+
+
+
+</form>

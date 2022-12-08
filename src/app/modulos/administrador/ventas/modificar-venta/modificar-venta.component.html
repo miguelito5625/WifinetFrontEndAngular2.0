@@ -1,0 +1,124 @@
+<div class="title">
+
+
+    <h3>Modificando los datos de la venta</h3>
+
+
+</div>
+
+<form [formGroup]="formularioVenta" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Cliente</label>
+                <select class="form-control selectpicker show-tick" id="selectCliente"
+                    formControlName="id_cliente" data-style="btn btn-default"
+                    title="Seleccione un cliente" data-size="7" data-live-search="true">
+                    <option *ngFor="let cliente of listaDeClientes" value="{{cliente.id_cliente}}">
+                        {{cliente.primer_nombre}} {{cliente.segundo_nombre}} {{cliente.primer_apellido}} {{cliente.segundo_apellido}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha de venta</label>
+                <input type="text" class="form-control datetimepicker" id="fecha_venta" #fecha_venta readonly>
+            </div>
+        </div>
+
+         <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Subtotal</label>
+                <input type="number" class="form-control" formControlName="total_venta" (keyup)="onKeyUpAjuste()">
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Ajuste</label>
+                <input type="number" class="form-control" formControlName="ajuste" (keyup)="onKeyUpAjuste()">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Total</label>
+                <input type="number" class="form-control" formControlName="total_ajuste" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Numero de Factura</label>
+                <input type="text" class="form-control" formControlName="numero_factura">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Numero de Recibo</label>
+                <input type="text" class="form-control" formControlName="numero_recibo">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Tipo de pago</label>
+                <select class="form-control selectpicker show-tick" id="selectTipoPago" formControlName="tipo_pago"
+                    data-style="btn btn-default" title="Seleccione el tipo de pago" data-size="7" data-live-search="true">
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Depósito">Depósito</option>
+<option value="Transferencia">Transferencia</option>
+                    <option value="Portal Web">Portal Web</option>
+<option value="POS">Terminal Punto de Venta (POS)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+
+            <div class="form-group form-file-upload form-file-multiple">
+                <label for="inputArchivo">Boleta de pago (opcional)</label>
+                <input type="file" class="inputFileHidden" single #inputFieldComprobante formControlName="importFile" id="importFile" (change)="onFileChange($event.target.files)">
+                <div class="input-group">
+                    <input type="text" class="form-control inputFileVisible" placeholder="Seleccione un archivo" #labelImport for="importFile">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-fab btn-round btn-primary">
+                            <i class="material-icons">attach_file</i>
+                        </button>
+                    </span>
+                </div>
+              </div>
+
+        </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <label for="iddetalles" class="bmd-label-floating">Detalle</label>
+                    <textarea class="form-control" formControlName="detalle" id="iddetalles" rows="3"></textarea>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary" ><i class="material-icons">save</i> Guardar</button>
+            <a class="btn btn-primary" routerLink="/administrador/ventas/listar"><i class="material-icons">cancel</i>
+                Cancelar</a>
+        </div>
+    </div>
+
+
+
+</form>
+
+

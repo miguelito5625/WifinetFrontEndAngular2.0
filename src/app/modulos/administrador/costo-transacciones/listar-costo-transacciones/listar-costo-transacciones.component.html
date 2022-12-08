@@ -1,0 +1,121 @@
+
+<div class="row mb-2">
+
+    <div class="col-12">
+        <h2 style="margin: 0px;">Costo Transacciones</h2>
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary" routerLink="/administrador/costo-transacciones/crear">Crear <i class="fas fa-plus-circle fa-lg"></i></button>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group has-default">
+            <label class="label-control mb-3">Buscar</label>
+            <input type="text" class="form-control" #filtroTexto>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group">
+            <label class="label-control">Filtrar por estado</label>
+            <select class="form-control selectpicker show-tick" #filtroEstado data-style="btn btn-default" title=""
+                data-size="7" data-live-search="false">
+                <option value="">Ninguno</option>
+                <option value="vigente">vigente</option>
+                <option value="vencido">vencido</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+        <button class="btn btn-primary btn-buscar" (click)="filtrarDatos()"><i class="fas fa-search fa-lg"></i></button>
+    </div>
+
+</div>
+
+
+
+<div class="mb-4">
+    <ngx-datatable class="material" [rows]="rows" [scrollbarH]="true" [messages]="messages" [columnMode]="ColumnMode.force"
+    [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="15">
+
+
+    <ngx-datatable-column name="tipo_transaccion">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Tipo Transaccion</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.tipo_transaccion}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="nombre_plan">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Nombre Plan</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.nombre_plan}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="costo">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Costo</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.costo}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="fecha_inicio">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Inicio</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{formatearFecha(row.fecha_inicio)}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="fecha_fin">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Fin</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{formatearFecha(row.fecha_fin)}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="estado">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Estado</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.estado}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Acciones">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            <span>Acciones</span>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            
+            
+            <!-- <button class="btn btn-primary btn-sm" (click)="editarCliente(row)" data-toggle="tooltip"
+                title="Editar"><i class="fas fa-edit fa-lg"></i></button> -->
+
+                <button *ngIf="row.estado === 'vigente'" class="btn btn-primary btn-sm" (click)="darDeBajaCostoTransacciones(row.tipo_transaccion, row.nombre_plan)" data-toggle="tooltip"
+                title="Dar de baja"><i class="fas fa-exclamation-triangle"></i></button>
+
+                <button class="btn btn-primary btn-sm" data-toggle="tooltip" (click)="detallesCostoTransacciones(row)"
+                title="Detalles"><i class="fas fa-info-circle fa-lg"></i></button>
+                
+        </ng-template>
+    </ngx-datatable-column>
+
+</ngx-datatable>
+</div>

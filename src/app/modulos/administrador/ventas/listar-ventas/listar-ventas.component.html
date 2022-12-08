@@ -1,0 +1,151 @@
+<div class="row mb-2">
+
+    <div class="col-12">
+        <h2 style="margin: 0px;">Ventas</h2>
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary" routerLink="/administrador/ventas/crear">Crear <i class="fas fa-plus-circle fa-lg"></i></button>
+    </div>
+
+
+</div>
+
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group has-default">
+            <label class="label-control mb-3">Buscar</label>
+            <input type="text" class="form-control" #filtroTexto>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group">
+            <label class="label-control">Filtrar por estado</label>
+            <select class="form-control selectpicker show-tick" #filtroEstado
+                data-style="btn btn-default" title="" data-size="7" data-live-search="false">
+                <option value="">Todas</option>
+                <option value="validada">Validada</option>
+                <option value="anulada">Anulada</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+        <button class="btn btn-primary btn-buscar" (click)="filtrarDatos()"><i class="fas fa-search fa-lg"></i></button>
+    </div>
+
+</div>
+
+<div class="mb-4">
+    <ngx-datatable class="material" [rows]="rows" [scrollbarH]="true" [messages]="messages"
+        [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="15">
+
+
+        <ngx-datatable-column name="nombre_cliente">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Cliente</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span class="font-weight-bold">{{row.nombre_cliente}}</span>
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="estado_venta">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Estado</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+
+                <!-- <div data-toggle="tooltip" title="{{row.estado_venta}}"> -->
+
+                    <a *ngIf="row.estado_venta == 'validada'" style="text-transform: capitalize;"><i class="fas fa-check-circle fa-3x"
+                            style="color: green;"></i></a>
+                    <a *ngIf="row.estado_venta == 'anulada'" style="text-transform: capitalize;"><i class="fas fa-times-circle fa-3x"
+                            style="color: red;"></i></a>
+
+                <!-- </div> -->
+
+
+
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="fecha_transaccion_sistema">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Fecha venta sistema</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.fecha_transaccion_sistema_formateada}}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="fecha_transaccion_usuario">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Fecha venta usuario</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.fecha_transaccion_usuario_formateada}}
+            </ng-template>
+        </ngx-datatable-column>
+
+
+        <ngx-datatable-column name="subtotal">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Subtotal</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.total_venta}}
+            </ng-template>
+        </ngx-datatable-column>
+
+
+        <ngx-datatable-column name="ajuste">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Ajuste</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.ajuste}}
+            </ng-template>
+        </ngx-datatable-column>
+
+
+        <ngx-datatable-column name="total">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Total</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{obtenerTotal(row.total_venta, row.ajuste)}}
+            </ng-template>
+        </ngx-datatable-column>
+
+
+
+        <ngx-datatable-column name="Acciones" [width]="225">
+            <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Acciones</span>
+            </ng-template>
+            <ng-template let-row="row" ngx-datatable-cell-template>
+
+                <button class="btn btn-primary btn-sm"  data-toggle="tooltip"
+                (click)="crearRecibo(row)" title="Recibo"><i class="fas fa-file-invoice fa-lg"></i></button>
+
+                <a *ngIf="row.url_comprobante" class="btn btn-primary btn-sm"  data-toggle="tooltip" href="{{row.url_comprobante}}" target="_blank"
+                title="Comprobante"><i class="fas fa-file-download fa-lg"></i></a>
+
+                <button class="btn btn-primary btn-sm" (click)="detalleVenta(row)" data-toggle="tooltip"
+                title="Detalles"><i class="fas fa-info-circle fa-lg"></i></button>
+
+                <button *ngIf="row.estado_venta === 'validada'" class="btn btn-primary btn-sm" (click)="modificarVenta(row)" data-toggle="tooltip"
+                title="Editar"><i class="fas fa-edit fa-lg"></i></button>
+
+                <button *ngIf="row.estado_venta === 'validada'" class="btn btn-primary btn-sm" (click)="cambiarEstado(row)" data-toggle="tooltip"
+                title="Anular"><i class="fas fa-exclamation-triangle fa-lg"></i></button>
+                
+
+
+            </ng-template>
+        </ngx-datatable-column>
+
+    </ngx-datatable>
+</div>

@@ -1,0 +1,48 @@
+<div class="title">
+
+
+    <h3>Modificar ruta</h3>
+
+
+</div>
+
+<form [formGroup]="formularioRuta">
+
+
+    <div class="row">
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Nombre de la ruta</label>
+                <input type="text" class="form-control" formControlName="nombre_ruta">
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Usuarios cobradores</label>
+                <select class="form-control selectpicker show-tick" formControlName="id_usuario" data-style="btn btn-default" title="Seleccione un usuario" data-size="7" data-live-search="true">
+                    <option *ngFor="let empleado of listaEmpleados" value="{{empleado.id_usuario}}">{{empleado.nombre_completo}}</option>
+                </select>
+            </div>
+        </div>
+
+       
+
+
+    </div>
+
+    <br>
+
+
+</form>
+
+
+<div class="row mt-2">
+    <div class="col-12 mr-auto">
+        <button class="btn btn-primary" (click)="onSubmit()"><i class="material-icons">save</i> Guardar</button>
+        <a class="btn btn-primary" routerLink="/administrador/rutas/listar"><i class="material-icons">cancel</i>
+            Cancelar</a>
+    </div>
+</div>

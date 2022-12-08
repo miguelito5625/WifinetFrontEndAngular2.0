@@ -1,0 +1,8 @@
+::ng-deep .btn-default{
+    text-transform: capitalize;
+    height: 15px;
+}
+
+::ng-deep .btn-default .filter-option{
+    height: 15px !important;
+}

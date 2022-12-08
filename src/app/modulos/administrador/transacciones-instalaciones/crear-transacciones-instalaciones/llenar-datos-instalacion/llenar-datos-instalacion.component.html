@@ -1,0 +1,178 @@
+<div class="title">
+
+
+    <h3>Datos de la instalación para cliente <span class="font-weight-bold">{{nombreClienteInstalacion}}</span> en dirección <span class="font-weight-bold">{{direccionCliente}}</span></h3>
+
+
+</div>
+
+<form [formGroup]="formularioInstalacion" (submit)="onSubmit()">
+
+
+    <div class="row">
+
+        
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Fecha de alta</label>
+                <input type="text" #fecha_alta name="fecha_alta" autocomplete="off" required
+                    id="idfecha_alta" class="form-control datetimepicker" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="ip_asignada" class="bmd-label-floating">Ip asignada</label>
+                <input type="text" formControlName="ip_asignada" autocomplete="off" name="ip_asignada" class="form-control" id="ip_asignada">
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idnombre_queue" class="bmd-label-floating">Nombre queue</label>
+                <input type="text" formControlName="nombre_queue" autocomplete="off" name="nombre_queue"
+                    class="form-control" id="idnombre_queue" readonly>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Plan</label>
+                <select class="form-control selectpicker show-tick" formControlName="id_plan" #nombre_plan (change)="onChangePlanes(nombre_plan.options[nombre_plan.value].text)" required
+                    data-style="btn btn-default" title="Seleccione el plan" data-size="7" data-live-search="true">
+                    <option *ngFor="let plan of listaPlanes" value="{{plan.id}}">{{plan.nombre}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idprecio_instalacion" class="bmd-label-floating">Precio de instalación vigente</label>
+                <input type="text" formControlName="precio_instalacion" autocomplete="off"
+                    class="form-control" id="idprecio_instalacion" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idajuste" class="bmd-label-floating">ajuste</label>
+                <input type="number" formControlName="ajuste" (keyup)="onKeyUpAjuste()" autocomplete="off"
+                    class="form-control" id="idajuste">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">Tipo de pago</label>
+                <select class="form-control selectpicker show-tick" formControlName="tipo_pago" required
+                    data-style="btn btn-default" title="Seleccione el tipo de pago" data-size="7" data-live-search="false">
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Depósito">Depósito</option>
+<option value="Transferencia">Transferencia</option>
+                    <option value="Portal Web">Portal Web</option>
+<option value="POS">Terminal Punto de Venta (POS)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="idtotal" class="bmd-label-floating">Total</label>
+                <input type="text" formControlName="total" autocomplete="off"
+                    class="form-control" id="idtotal" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">No. Factura</label>
+                <input type="text" formControlName="numero_factura" autocomplete="off"
+                    class="form-control">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">No. Recibo</label>
+                <input type="text" formControlName="numero_recibo" autocomplete="off"
+                    class="form-control">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="label-control">¿Primer mes gratis?</label>
+                <select class="form-control selectpicker show-tick" formControlName="primer_mes_gratis" required
+                    data-style="btn btn-default" title="Seleccione una Opción" data-size="7" data-live-search="false">
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label class="bmd-label-floating">Cliente que refiere</label>
+                <input type="text" class="form-control" value="{{nombreClienteQueRefiere}}" readonly>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+
+            <div class="form-group form-file-upload form-file-multiple">
+                <label for="inputArchivo">Boleta de pago (opcional)</label>
+                <input type="file" class="inputFileHidden" single #inputFilePdf formControlName="importFile" id="importFile" (change)="onFileChange($event.target.files)">
+                <div class="input-group">
+                    <input type="text" class="form-control inputFileVisible" placeholder="Seleccione un archivo" #labelImport for="importFile">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-fab btn-round btn-primary">
+                            <i class="material-icons">attach_file</i>
+                        </button>
+                    </span>
+                </div>
+              </div>
+
+              
+
+    </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <label for="iddetalles" class="bmd-label-floating">Detalle</label>
+                    <textarea class="form-control" formControlName="detalle" id="iddetalles" rows="3"></textarea>
+            </div>
+        </div>
+
+         <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="form-check">
+                <br>
+                <label class="form-check-label">
+                    <input class="form-check-input" (change)="OnChangeEstadoEmpleado()" formControlName="check_estado" name="estado" type="checkbox" value="Activo">
+                    Activar
+                    <span class="form-check-sign">
+                        <span class="check"></span>
+                    </span>
+                </label>
+            </div>
+        </div> -->
+
+
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-12 mr-auto">
+            <button class="btn btn-primary"><i class="material-icons">save</i> Guardar</button>
+            <!-- <a class="btn btn-primary" routerLink="/administrador/clientes/listar"><i class="material-icons">cancel</i>
+                Cancelar</a> -->
+        </div>
+    </div>
+
+
+
+</form>
