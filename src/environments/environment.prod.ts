@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  backendServer: "https://api.wifinetgt.com:4444/api",
+  backendServer: "https://backendwifinet.tk:4444/api",
   firebaseConfig: {
     apiKey: "AIzaSyAXUy418CFyBfKppShFScH6vhsFzS6seFU",
     authDomain: "versatile-gist-288922.firebaseapp.com",
